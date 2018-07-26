@@ -45,6 +45,17 @@ pipenv run python manage.py createsuperuser
 # nopassword123123
 ```
 
+```python
+# urls.py
+from django.conf.urls import url
+from django.contrib import admin
+from blogzin.blog import *
+
+urlpatterns = [
+    url('admin/', admin.site.urls),
+]
+```
+
 ## Home
 
 Views and routes:
@@ -63,6 +74,6 @@ from blogzin.blog import *
 
 urlpatterns = [
     url('admin/', admin.site.urls),
-    url('', blog_index, name='home')
+    url('', blog_index, name='home'),
 ]
 ```

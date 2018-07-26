@@ -19,5 +19,5 @@ from blogzin.blog import *
 
 urlpatterns = [
     url('admin/', admin.site.urls),
-    url('', blog_index, name='home')
+    url('', blog_index, name='home'),
 ]
