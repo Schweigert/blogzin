@@ -1,6 +1,6 @@
 # How this is constructed
 
-Bootstrap
+## Bootstrap
 
 ```sh
 # Start project
@@ -23,4 +23,46 @@ pipenv run python manage.py startapp blog
 
 # Run Server
 pipenv run python manage.py runserver 0:8000
+```
+
+## Admin
+
+run migrations:
+
+```sh
+pipenv run python manage.py migrate
+```
+
+create superuser:
+
+```sh
+pipenv run python manage.py createsuperuser
+
+# Defaults in DB
+# marlon
+# marlon.henry@magrathealabs.com
+# nopassword123123
+# nopassword123123
+```
+
+## Home
+
+Views and routes:
+
+```python
+# blog/views.py
+from django.http import HttpResponse
+
+def blog_index(request):
+    return HttpResponse("My blog is alive!")
+
+# urls.py
+from django.conf.urls import url
+from django.contrib import admin
+from blogzin.blog import *
+
+urlpatterns = [
+    url('admin/', admin.site.urls),
+    url('', blog_index, name='home')
+]
 ```
